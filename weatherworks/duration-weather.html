@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WeatherWorks - 비작업일수 산정·예측정확도</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="./css/style.css" />
   <style>
     .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 20px; }
     .kpi-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px 18px; }
@@ -44,6 +44,7 @@
 </head>
 <body>
   <div class="layout">
+    <!-- 사이드바 -->
     <aside class="sidebar">
       <div class="logo">
         <span class="logo-sub">건설공사 비작업일수·공사기간 산정</span>
@@ -55,7 +56,8 @@
       </div>
     </aside>
 
-    <div class="main-content">
+    <!-- 메인 컨텐츠 본문 -->
+    <main class="main-content">
       <div class="top-bar">
         <span class="breadcrumb">공사기간 산정 &gt; <strong>비작업일수 산정·예측정확도</strong></span>
         <div class="top-actions">
@@ -177,17 +179,17 @@
             </table>
           </div>
         </div>
-
       </div>
-    </div>
+    </main>
   </div>
 
-  <script src="js/sw-catalog.js"></script>
-  <script src="js/stations-data.js"></script>
-  <script src="js/db.js"></script>
-  <script src="js/seed.js"></script>
-  <script src="js/calc.js"></script>
-  <script src="js/nav.js"></script>
+  <!-- 스크립트 연결 -->
+  <script src="./js/sw-catalog.js"></script>
+  <script src="./js/stations-data.js"></script>
+  <script src="./js/db.js"></script>
+  <script src="./js/seed.js"></script>
+  <script src="./js/calc.js"></script>
+  <script src="./js/nav.js"></script>
 
   <script>
     const MONTH_DATA = [
@@ -217,7 +219,7 @@
         }
 
         if (!records || records.length === 0) {
-          const res = await fetch('data/quality-data.json');
+          const res = await fetch('./data/quality-data.json');
           if (res.ok) {
             const data = await res.json();
             records = data.records || (Array.isArray(data) ? data : []);
